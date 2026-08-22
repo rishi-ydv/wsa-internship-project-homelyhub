@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Environment variables / secrets
+.env
+
+
+# Build files
+dist/
+build/
+
+# React / Vite
+.vite/
+
+
+
+# Logs
+*.log
+npm-debug.log*
+
+
+# Coverage
+coverage/
+
+# Cache
+.cache/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE / Editor files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+
+# MongoDB local data (if you create it locally)
+data/
