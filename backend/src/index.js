@@ -1,10 +1,22 @@
 import express from "express";
 import dotenv from "dotenv";
 dotenv.config();
+import cors from "cors";
+import cookieParser from "cookie-parser";
 
 const app = express();
-
 const PORT = process.env.PORT || 8000;
+
+//middlewares
+//express.json convert json into jsObj
+app.use(express.json({limit:"100mb"}));
+
+//urlencoded convert form data into jsObj
+//extended true help to resolve any nested form data 
+app.use(express.urlencoded({limit:"100mb", extended: true }));
+
+//cookieParser Read the cookies sent by the browser and make them easily accessible through req.cookies.
+app.use(cookieParser());
 
 
 //Health checkup-route
