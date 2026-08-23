@@ -3,9 +3,11 @@ import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import cookieParser from "cookie-parser";
+import connectDB from "./config/database.js";
 
 const app = express();
 const PORT = process.env.PORT || 8000;
+
 
 //middlewares
 //express.json convert json into jsObj
@@ -24,6 +26,7 @@ app.get("/",(req, res)=>{
   res.send("HomelyHub Server is running");
 })
 
+await connectDB();
 app.listen(PORT, ()=> {
   console.log(`Server is running on port no: ${PORT}`);
 });
