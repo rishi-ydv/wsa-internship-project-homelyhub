@@ -4,7 +4,7 @@ dotenv.config();
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/database.js";
-
+import userRoutes from "./routes/user.routes.js";
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -25,6 +25,9 @@ app.use(cookieParser());
 app.get("/",(req, res)=>{
   res.send("HomelyHub Server is running");
 })
+
+
+app.use("/api/v1/rent/user", userRoutes);
 
 await connectDB();
 app.listen(PORT, ()=> {
