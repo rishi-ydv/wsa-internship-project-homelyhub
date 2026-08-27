@@ -24,6 +24,21 @@ const getProperties = async (req, res) => {
   }
 };
 
+//get property by id
+const getPropertyById = async (req, res) => {
+  try {
+    const property = await Property.findById(req.params.id);
 
+    res.status(200).json({
+      status: "success",
+      data: property,
+    });
+  } catch (error) {
+    res.status(404).json({
+      status: "fail",
+      message: error.message,
+    });
+  }
+};
 
-export {getProperties};
+export { getProperties, getPropertyById };
