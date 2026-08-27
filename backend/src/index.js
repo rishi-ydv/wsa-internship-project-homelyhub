@@ -5,6 +5,11 @@ import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./config/database.js";
 import userRoutes from "./routes/user.routes.js";
+import { propertyRouter } from "./routes/property.routes.js";
+
+
+
+
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -28,6 +33,7 @@ app.get("/",(req, res)=>{
 
 
 app.use("/api/v1/rent/user", userRoutes);
+app.use("/api/v1/rent/listing",propertyRouter);
 
 await connectDB();
 app.listen(PORT, ()=> {
