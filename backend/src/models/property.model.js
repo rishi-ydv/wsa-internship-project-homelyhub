@@ -16,7 +16,7 @@ const propertySchema = new mongoose.Schema(
       default: "checkin on time. good services",
     },
     propertyType: {
-      type:String,
+      type: String,
       enum: ["House", "Flat", "Guest House", "Hotel"],
       default: "House",
     },
@@ -79,8 +79,24 @@ const propertySchema = new mongoose.Schema(
       state: String,
       pincode: Number,
     },
-    //will add this soon
-    currentBookings: {},
+    currentBookings: [
+      {
+        bookingId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Booking",
+        },
+        fromDate: {
+          type: Date,
+        },
+        toDate: {
+          type: Date,
+        },
+        userId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "User",
+        },
+      },
+    ],
     userId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "User",
