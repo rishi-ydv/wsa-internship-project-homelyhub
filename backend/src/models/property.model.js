@@ -118,6 +118,6 @@ propertySchema.pre("save", function (next) {
   next();
 });
 
-const Property = mongoose.model("Property", propertySchema);
+const Property = mongoose.models.Property || mongoose.model("Property", propertySchema);
 
 export { Property };
