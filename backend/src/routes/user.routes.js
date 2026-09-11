@@ -11,6 +11,7 @@ import {
   updateMe,
   updatePassword,
 } from "../controllers/auth.controller.js";
+import { writeDescription } from "../controllers/trip.controller.js";
 
 const router = express.Router();
 
@@ -22,5 +23,6 @@ router.route("/updateMyPassword").patch(protect, updatePassword);
 router.route("/forgotPassword").post(forgotPassword);
 router.route("/resetPassword/:token").patch(resetPassword);
 router.route("/me").get(protect, check);
+router.route("/generateDescription").post(protect, writeDescription);
 
 export default router;
