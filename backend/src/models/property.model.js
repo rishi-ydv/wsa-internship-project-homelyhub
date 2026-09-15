@@ -108,14 +108,12 @@ const propertySchema = new mongoose.Schema(
   { timestamps: true },
 );
 
-propertySchema.pre("save", function (next) {
+propertySchema.pre("save", function () {
   this.slug = slugify(this.propertyName, { lower: true });
-  next();
 });
 
-propertySchema.pre("save", function (next) {
+propertySchema.pre("save", function () {
   this.address.city = this.address.city.toLowerCase().replaceAll(" ", "");
-  next();
 });
 
 const Property = mongoose.models.Property || mongoose.model("Property", propertySchema);
