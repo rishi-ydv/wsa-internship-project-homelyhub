@@ -3,6 +3,9 @@ node_modules/
 
 # Environment variables / secrets
 .env
+.env.development
+.env.production
+.env.local
 
 
 # Build files
