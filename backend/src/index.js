@@ -23,6 +23,14 @@ app.use(express.urlencoded({ limit: "100mb", extended: true }));
 //cookieParser Read the cookies sent by the browser and make them easily accessible through req.cookies.
 app.use(cookieParser());
 
+//Cors handle
+app.use(
+  cors({
+    origin: process.env.ORIGIN_ACCESS_URL,
+    credentials: true,
+  }),
+);
+
 //Health checkup-route
 app.get("/", (req, res) => {
   res.send("HomelyHub Server is running");
